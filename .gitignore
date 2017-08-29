@@ -1,6 +1,7 @@
 # Node
 node_modules
-dist
+# dist
+bundle-temp
 coverage
 npm-debug.log
 debug.log

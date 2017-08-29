@@ -60,7 +60,8 @@ const config = {
     allHtml: 'src/**/*.html',
     demoDir: 'demo/',
     outputDir: 'dist/',
-    coverageDir: 'coverage/'
+    coverageDir: 'coverage/',
+    bundleTempDir : 'bundle-temp/'
 };
 
 
@@ -103,11 +104,15 @@ gulp.task('clean:dist', () => {
     return del(config.outputDir);
 });
 
+gulp.task('clean:bundle-temp', () => {
+    return del(config.bundleTempDir);
+});
+
 gulp.task('clean:coverage', () => {
     return del(config.coverageDir);
 });
 
-gulp.task('clean', ['clean:dist', 'clean:coverage']);
+gulp.task('clean', ['clean:dist', 'clean:coverage','clean:bundle-temp']);
 
 // TsLint the source files
 gulp.task('lint', (cb) => {
@@ -144,6 +149,22 @@ const styleProcessor = (stylePath, ext, styleFile, callback) => {
   }
 };
 
+gulp.task('inline-bundle-templates', (cb) => {
+    const options = {
+        base: '/src',
+        target: 'es5',
+        styleProcessor: styleProcessor,
+        useRelativePaths: true
+    };
+    pump(
+        [
+            gulp.src(config.allTs),
+            embedTemplates(options),
+            gulp.dest(`${config.bundleTempDir}/inlined`)
+        ],
+        cb);
+});
+
 gulp.task('inline-templates', (cb) => {
     const options = {
         base: '/src',
@@ -166,6 +187,15 @@ gulp.task('ngc', (cb) => {
     const ngc = exec(`${executable} -p ./tsconfig-aot.json`, (err) => {
         if (err) return cb(err); // return error
         del(`${config.outputDir}/inlined`); //delete temporary *.ts files with inlined templates and styles
+        cb();
+    }).stdout.on('data', (data) => console.log(data));
+});
+
+gulp.task('ngc-bundle', (cb) => {
+    const executable = path.join(__dirname, platformPath('/node_modules/.bin/ngc'));
+    const ngc = exec(`${executable} -p ./tsconfig-bundle.json`, (err) => {
+        if (err) return cb(err); // return error
+        del(`${config.bundleTempDir}/inlined`); //delete temporary *.ts files with inlined templates and styles
         cb();
     }).stdout.on('data', (data) => console.log(data));
 });
@@ -278,7 +308,7 @@ gulp.task('bundle', () => {
         dest: 'ngx-sharebuttons.umd.js'
     };
 
-    return gulp.src(`${config.outputDir}/index.js`)
+    return gulp.src(`${config.bundleTempDir}/index.js`)
         .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
         .pipe(gulp.dest(`${config.outputDir}/bundles`));
 });
@@ -311,6 +341,10 @@ gulp.task('compile', (cb) => {
     runSequence('lint', 'inline-templates', 'ngc', cb);
 });
 
+gulp.task('compile-bundle', (cb) => {
+    runSequence('lint', 'inline-templates', 'ngc-bundle', cb);
+});
+
 // Watch changes on (*.ts, *.sass, *.html) and Compile
 gulp.task('watch', () => {
     gulp.watch([config.allTs, config.allHtml, config.allSass], ['compile']);
@@ -318,7 +352,7 @@ gulp.task('watch', () => {
 
 // Build the 'dist' folder (without publishing it to NPM)
 gulp.task('build', ['clean'], (cb) => {
-    runSequence('compile', 'test', 'package', 'bundle', cb);
+    runSequence('compile','compile-bundle', 'test', 'package', 'bundle', cb);
 });
 
 // Build and then Publish 'dist' folder to NPM
