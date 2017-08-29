@@ -26,12 +26,12 @@
   ],
   "author": "Murhaf Sousli <murhafsousi@gmail.com>",
   "license": "MIT",
-  "main": "bundles/ngx-sharebuttons.umd.js",
+  "main": "./dist/bundles/ngx-sharebuttons.umd.js",
   "files": [
     "dist"
   ],
   "module": "./dist/index.js",
-  "typings": "./dist",
+  "typings": "./dist/index.d.ts",
   "scripts": {
     "start": "gulp build",
     "test": " gulp test"
