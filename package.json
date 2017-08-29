@@ -36,12 +36,10 @@
     "start": "gulp build",
     "test": " gulp test"
   },
-  "dependencies": {
+  "devDependencies": {
     "@angular/common": "4.0.0",
     "@angular/core": "4.0.0",
-    "@angular/http": "4.0.0"
-  },
-  "devDependencies": {
+    "@angular/http": "4.0.0",
     "@angular/compiler": "4.0.0",
     "@angular/compiler-cli": "4.0.0",
     "@angular/platform-browser": "4.0.0",
