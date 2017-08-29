@@ -30,7 +30,7 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/index.js",
+  "module": "./dist/es5/index.js",
   "typings": "./dist/index.d.ts",
   "scripts": {
     "start": "gulp build",
