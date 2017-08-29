@@ -287,7 +287,7 @@ gulp.task('bundle', () => {
         dest: 'ngx-sharebuttons.umd.js'
     };
 
-    return gulp.src(`${config.outputDir}/index.js`)
+    return gulp.src(`${config.outputDir}/es5/index.js`)
         .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
         .pipe(gulp.dest(`${config.outputDir}/bundles`));
 });
