@@ -8,7 +8,7 @@ import { ShareButton, ShareArgs, ShareProvider } from './helpers/index';
 export declare class ShareButtonsModule {
     static forRoot(): {
         ngModule: typeof ShareButtonsModule;
-        providers: (typeof ShareButtonsService | typeof WindowService)[];
+        providers: (typeof WindowService | typeof ShareButtonsService)[];
     };
 }
 export { ShareButtonsComponent, ShareButtonComponent, ShareButtonDirective, ShareButton, NFormatterPipe, ShareButtonsService, ShareArgs, ShareProvider };

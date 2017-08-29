@@ -120,28 +120,28 @@ gulp.task('lint', (cb) => {
 
 // Compile Sass to css and Inline templates and styles in ng2 components
 const styleProcessor = (stylePath, ext, styleFile, callback) => {
-  /**
-   * Remove comments, autoprefixer, Minifier
-   */
-  const processors = [
-      stripInlineComments,
-      autoprefixer,
-      cssnano
-  ];
+    /**
+     * Remove comments, autoprefixer, Minifier
+     */
+    const processors = [
+        stripInlineComments,
+        autoprefixer,
+        cssnano
+    ];
 
-  if (/\.(scss|sass)$/.test(ext[0])) {
-    let sassObj = sass.renderSync({ file: stylePath });
-    if (sassObj && sassObj['css']){
-     let css = sassObj.css.toString('utf8');
-     postcss(processors).process(css).then(function (result) {
-        result.warnings().forEach(function (warn) {
-          gutil.warn(warn.toString());
-        });
-        styleFile = result.css;
-        callback(null, styleFile);
-    });
+    if (/\.(scss|sass)$/.test(ext[0])) {
+        let sassObj = sass.renderSync({ file: stylePath });
+        if (sassObj && sassObj['css']) {
+            let css = sassObj.css.toString('utf8');
+            postcss(processors).process(css).then(function (result) {
+                result.warnings().forEach(function (warn) {
+                    gutil.warn(warn.toString());
+                });
+                styleFile = result.css;
+                callback(null, styleFile);
+            });
+        }
     }
-  }
 };
 
 gulp.task('inline-templates', (cb) => {
@@ -317,7 +317,7 @@ gulp.task('coveralls', () => {
 
 // Lint, Sass to css, Inline templates & Styles and Compile
 gulp.task('compile', (cb) => {
-    runSequence('lint', 'inline-templates', 'ngc','ngc-es5', cb);
+    runSequence('lint', 'inline-templates', 'ngc', 'ngc-es5', cb);
 });
 
 // Watch changes on (*.ts, *.sass, *.html) and Compile
@@ -327,7 +327,7 @@ gulp.task('watch', () => {
 
 // Build the 'dist' folder (without publishing it to NPM)
 gulp.task('build', ['clean'], (cb) => {
-    runSequence('compile', 'test', 'package', 'bundle', cb);
+    runSequence('compile', 'bundle', cb);
 });
 
 // Build and then Publish 'dist' folder to NPM
