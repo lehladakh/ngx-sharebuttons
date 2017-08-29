@@ -1,7 +1,9 @@
-import { ShareProvider } from './share-provider.enum';
-import { ShareLinks } from './share-links.functions';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var share_provider_enum_1 = require("./share-provider.enum");
+var share_links_functions_1 = require("./share-links.functions");
 /** Here is a collection of helper functions that can be used statically */
-export var Helper;
+var Helper;
 (function (Helper) {
     /** Prepare gPlus count request body   */
     Helper.gplusCountBody = function (url) {
@@ -23,24 +25,24 @@ export var Helper;
     /** Create share links */
     Helper.shareFactory = function (type, args) {
         switch (type) {
-            case ShareProvider.FACEBOOK:
-                return ShareLinks.fbShare(args);
-            case ShareProvider.TWITTER:
-                return ShareLinks.twitterShare(args);
-            case ShareProvider.LINKEDIN:
-                return ShareLinks.linkedInShare(args);
-            case ShareProvider.REDDIT:
-                return ShareLinks.redditShare(args);
-            case ShareProvider.TUMBLR:
-                return ShareLinks.tumblrShare(args);
-            case ShareProvider.STUMBLEUPON:
-                return ShareLinks.stumbleShare(args);
-            case ShareProvider.GOOGLEPLUS:
-                return ShareLinks.gPlusShare(args);
-            case ShareProvider.PINTEREST:
-                return ShareLinks.pinShare(args);
-            case ShareProvider.WHATSAPP:
-                return ShareLinks.whatsappShare(args);
+            case share_provider_enum_1.ShareProvider.FACEBOOK:
+                return share_links_functions_1.ShareLinks.fbShare(args);
+            case share_provider_enum_1.ShareProvider.TWITTER:
+                return share_links_functions_1.ShareLinks.twitterShare(args);
+            case share_provider_enum_1.ShareProvider.LINKEDIN:
+                return share_links_functions_1.ShareLinks.linkedInShare(args);
+            case share_provider_enum_1.ShareProvider.REDDIT:
+                return share_links_functions_1.ShareLinks.redditShare(args);
+            case share_provider_enum_1.ShareProvider.TUMBLR:
+                return share_links_functions_1.ShareLinks.tumblrShare(args);
+            case share_provider_enum_1.ShareProvider.STUMBLEUPON:
+                return share_links_functions_1.ShareLinks.stumbleShare(args);
+            case share_provider_enum_1.ShareProvider.GOOGLEPLUS:
+                return share_links_functions_1.ShareLinks.gPlusShare(args);
+            case share_provider_enum_1.ShareProvider.PINTEREST:
+                return share_links_functions_1.ShareLinks.pinShare(args);
+            case share_provider_enum_1.ShareProvider.WHATSAPP:
+                return share_links_functions_1.ShareLinks.whatsappShare(args);
             default:
                 return '';
         }
@@ -74,5 +76,5 @@ export var Helper;
         }
         return result;
     };
-})(Helper || (Helper = {}));
+})(Helper = exports.Helper || (exports.Helper = {}));
 //# sourceMappingURL=share.helper.js.map

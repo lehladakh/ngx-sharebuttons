@@ -1,4 +1,6 @@
-import { Injectable } from '@angular/core';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var WindowService = (function () {
     function WindowService() {
     }
@@ -11,12 +13,12 @@ var WindowService = (function () {
     });
     return WindowService;
 }());
-export { WindowService };
 WindowService.decorators = [
-    { type: Injectable },
+    { type: core_1.Injectable },
 ];
 /** @nocollapse */
 WindowService.ctorParameters = function () { return []; };
+exports.WindowService = WindowService;
 function _window() {
     // return the global native browser window object
     return typeof window !== 'undefined' ? window : undefined;

@@ -317,7 +317,7 @@ gulp.task('coveralls', () => {
 
 // Lint, Sass to css, Inline templates & Styles and Compile
 gulp.task('compile', (cb) => {
-    runSequence('lint', 'inline-templates', 'ngc', 'ngc-es5', cb);
+    runSequence('lint', 'inline-templates', 'ngc', cb);
 });
 
 // Watch changes on (*.ts, *.sass, *.html) and Compile

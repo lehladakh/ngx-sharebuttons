@@ -1,10 +1,12 @@
-import { Injectable } from '@angular/core';
-import { Http, Jsonp, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/empty';
-import { WindowService } from './window.service';
-import { ShareProvider, Helper } from '../helpers/index';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
+var Observable_1 = require("rxjs/Observable");
+require("rxjs/add/operator/catch");
+require("rxjs/add/observable/empty");
+var window_service_1 = require("./window.service");
+var index_1 = require("../helpers/index");
 var ShareButtonsService = (function () {
     function ShareButtonsService(window, http, jsonp) {
         this.http = http;
@@ -39,7 +41,7 @@ var ShareButtonsService = (function () {
         if (this.window.innerWidth <= 480) {
             args = Object.assign({}, args, { mobile: true });
         }
-        var popUp = this.window.open(Helper.shareFactory(type, args), 'newwindow', this.windowAttr());
+        var popUp = this.window.open(index_1.Helper.shareFactory(type, args), 'newwindow', this.windowAttr());
         /** Emit clicked button */
         if (this.window && popUp) {
             var pollTimer_1 = this.window.setInterval(function () {
@@ -53,22 +55,22 @@ var ShareButtonsService = (function () {
     /** Share Counts */
     ShareButtonsService.prototype.count = function (type, url, count) {
         switch (type) {
-            case ShareProvider.FACEBOOK:
+            case index_1.ShareProvider.FACEBOOK:
                 this.fbCount(url, count);
                 break;
-            case ShareProvider.LINKEDIN:
+            case index_1.ShareProvider.LINKEDIN:
                 this.linkedInCount(url, count);
                 break;
-            case ShareProvider.REDDIT:
+            case index_1.ShareProvider.REDDIT:
                 this.redditCount(url, count);
                 break;
-            case ShareProvider.TUMBLR:
+            case index_1.ShareProvider.TUMBLR:
                 this.tumblrCount(url, count);
                 break;
-            case ShareProvider.GOOGLEPLUS:
+            case index_1.ShareProvider.GOOGLEPLUS:
                 this.gPlusCount(url, count);
                 break;
-            case ShareProvider.PINTEREST:
+            case index_1.ShareProvider.PINTEREST:
                 this.pinCount(url, count);
                 break;
             default:
@@ -106,7 +108,7 @@ var ShareButtonsService = (function () {
         });
     };
     ShareButtonsService.prototype.gPlusCount = function (url, count) {
-        var body = Helper.gplusCountBody(url);
+        var body = index_1.Helper.gplusCountBody(url);
         this.post('https://clients6.google.com/rpc?key=AIzaSyCKSbrvQasunBoV16zDH9R33D88CeLr9gQ', body)
             .subscribe(function (data) {
             data = data.json();
@@ -137,32 +139,32 @@ var ShareButtonsService = (function () {
         });
     };
     ShareButtonsService.prototype.post = function (url, body) {
-        var headers = new Headers({ 'Content-Type': 'application/json' });
-        var options = new RequestOptions({ headers: headers });
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
         return this.http.post(url, body, options)
-            .catch(function (err) { return Observable.empty(); });
+            .catch(function (err) { return Observable_1.Observable.empty(); });
     };
     ShareButtonsService.prototype.fetch = function (url) {
         return this.http.get(url)
-            .catch(function (err) { return Observable.empty(); });
+            .catch(function (err) { return Observable_1.Observable.empty(); });
     };
     ShareButtonsService.prototype.fetchJsonp = function (url) {
         return this.jsonp.request(url + "&format=jsonp&callback=JSONP_CALLBACK")
-            .catch(function (err) { return Observable.empty(); });
+            .catch(function (err) { return Observable_1.Observable.empty(); });
     };
     ShareButtonsService.prototype.windowAttr = function () {
         return 'width=' + this.windowWidth + ', height=' + this.windowHeight;
     };
     return ShareButtonsService;
 }());
-export { ShareButtonsService };
 ShareButtonsService.decorators = [
-    { type: Injectable },
+    { type: core_1.Injectable },
 ];
 /** @nocollapse */
 ShareButtonsService.ctorParameters = function () { return [
-    { type: WindowService, },
-    { type: Http, },
-    { type: Jsonp, },
+    { type: window_service_1.WindowService, },
+    { type: http_1.Http, },
+    { type: http_1.Jsonp, },
 ]; };
+exports.ShareButtonsService = ShareButtonsService;
 //# sourceMappingURL=share-buttons.service.js.map

@@ -1,7 +1,9 @@
+"use strict";
 /** Share links functions:
  *  ShareLinks: Provide a share links for all services
  * */
-export var ShareLinks;
+Object.defineProperty(exports, "__esModule", { value: true });
+var ShareLinks;
 (function (ShareLinks) {
     function fbShare(args) {
         var shareUrl = 'https://www.facebook.com/sharer/sharer.php';
@@ -126,5 +128,5 @@ export var ShareLinks;
         return shareUrl;
     }
     ShareLinks.whatsappShare = whatsappShare;
-})(ShareLinks || (ShareLinks = {}));
+})(ShareLinks = exports.ShareLinks || (exports.ShareLinks = {}));
 //# sourceMappingURL=share-links.functions.js.map

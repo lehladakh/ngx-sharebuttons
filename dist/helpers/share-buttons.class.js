@@ -1,3 +1,5 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var ShareButton = (function () {
     function ShareButton(provider, template, classes) {
         this.provider = provider;
@@ -6,7 +8,7 @@ var ShareButton = (function () {
     }
     return ShareButton;
 }());
-export { ShareButton };
+exports.ShareButton = ShareButton;
 var ShareArgs = (function () {
     function ShareArgs(url, title, description, image, tags, via, mobile) {
         this.url = url;
@@ -19,5 +21,5 @@ var ShareArgs = (function () {
     }
     return ShareArgs;
 }());
-export { ShareArgs };
+exports.ShareArgs = ShareArgs;
 //# sourceMappingURL=share-buttons.class.js.map

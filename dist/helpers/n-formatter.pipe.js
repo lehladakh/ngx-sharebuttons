@@ -1,5 +1,7 @@
-import { Pipe } from '@angular/core';
-import { Helper } from './index';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
+var index_1 = require("./index");
 var NFormatterPipe = (function () {
     function NFormatterPipe() {
     }
@@ -7,16 +9,16 @@ var NFormatterPipe = (function () {
         if (typeof num !== 'number') {
             throw new Error('A number is expected for nFormatter');
         }
-        return Helper.nFormatter(num, digits);
+        return index_1.Helper.nFormatter(num, digits);
     };
     return NFormatterPipe;
 }());
-export { NFormatterPipe };
 NFormatterPipe.decorators = [
-    { type: Pipe, args: [{
+    { type: core_1.Pipe, args: [{
                 name: 'nFormatter'
             },] },
 ];
 /** @nocollapse */
 NFormatterPipe.ctorParameters = function () { return []; };
+exports.NFormatterPipe = NFormatterPipe;
 //# sourceMappingURL=n-formatter.pipe.js.map

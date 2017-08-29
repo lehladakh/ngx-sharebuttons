@@ -1,4 +1,6 @@
-export var ShareProvider;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var ShareProvider;
 (function (ShareProvider) {
     ShareProvider[ShareProvider["FACEBOOK"] = 0] = "FACEBOOK";
     ShareProvider[ShareProvider["TWITTER"] = 1] = "TWITTER";
@@ -9,5 +11,5 @@ export var ShareProvider;
     ShareProvider[ShareProvider["TUMBLR"] = 6] = "TUMBLR";
     ShareProvider[ShareProvider["PINTEREST"] = 7] = "PINTEREST";
     ShareProvider[ShareProvider["WHATSAPP"] = 8] = "WHATSAPP";
-})(ShareProvider || (ShareProvider = {}));
+})(ShareProvider = exports.ShareProvider || (exports.ShareProvider = {}));
 //# sourceMappingURL=share-provider.enum.js.map

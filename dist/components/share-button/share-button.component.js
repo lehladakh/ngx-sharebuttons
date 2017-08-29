@@ -1,12 +1,14 @@
-import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var core_1 = require("@angular/core");
 var ShareButtonComponent = (function () {
     function ShareButtonComponent() {
         /** Show count, disabled by default */
         this.showCount = false;
         /** Output button count to calculate total share counts */
-        this.count = new EventEmitter();
+        this.count = new core_1.EventEmitter();
         /** Output pop up closed*/
-        this.popUpClosed = new EventEmitter();
+        this.popUpClosed = new core_1.EventEmitter();
     }
     ShareButtonComponent.prototype.counter = function (count) {
         this.shareCount = count;
@@ -18,25 +20,25 @@ var ShareButtonComponent = (function () {
     };
     return ShareButtonComponent;
 }());
-export { ShareButtonComponent };
 ShareButtonComponent.decorators = [
-    { type: Component, args: [{
+    { type: core_1.Component, args: [{
                 selector: 'share-button',
                 template: "\n      <button [shareButton]=\"button.provider\"\n              [sbUrl]=\"url\"\n              [sbImage]=\"image\"\n              [sbTitle]=\"title\"\n              [sbDescription]=\"description\"\n              [sbTags]=\"tags\"\n              [sbShowCount]=\"showCount\"\n              (sbCount)=\"counter($event)\"\n              (sbPopUpClosed)=\"shareClosed($event)\"\n              [class.sb-show-count]=\"showCount\"\n        >\n\n        <div class=\"sb-template\" [innerHtml]=\"button.template\"></div>\n        <span *ngIf=\"showCount && shareCount\" class=\"sb-count\">{{ shareCount | nFormatter: 1 }}</span>\n      </button>\n    ",
-                changeDetection: ChangeDetectionStrategy.OnPush
+                changeDetection: core_1.ChangeDetectionStrategy.OnPush
             },] },
 ];
 /** @nocollapse */
 ShareButtonComponent.ctorParameters = function () { return []; };
 ShareButtonComponent.propDecorators = {
-    'url': [{ type: Input },],
-    'title': [{ type: Input },],
-    'description': [{ type: Input },],
-    'image': [{ type: Input },],
-    'tags': [{ type: Input },],
-    'button': [{ type: Input },],
-    'showCount': [{ type: Input },],
-    'count': [{ type: Output },],
-    'popUpClosed': [{ type: Output },],
+    'url': [{ type: core_1.Input },],
+    'title': [{ type: core_1.Input },],
+    'description': [{ type: core_1.Input },],
+    'image': [{ type: core_1.Input },],
+    'tags': [{ type: core_1.Input },],
+    'button': [{ type: core_1.Input },],
+    'showCount': [{ type: core_1.Input },],
+    'count': [{ type: core_1.Output },],
+    'popUpClosed': [{ type: core_1.Output },],
 };
+exports.ShareButtonComponent = ShareButtonComponent;
 //# sourceMappingURL=share-button.component.js.map
