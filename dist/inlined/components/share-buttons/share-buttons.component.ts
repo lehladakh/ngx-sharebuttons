@@ -1,15 +1,15 @@
 import {
-    Component,
-    OnInit,
-    OnChanges,
-    ViewEncapsulation,
     ChangeDetectionStrategy,
-    Input,
-    Output,
+    Component,
     EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
     SimpleChanges,
+    ViewEncapsulation,
 } from '@angular/core';
-import { ShareButton, ShareProvider } from '../../helpers/index';
+import {ShareButton, ShareProvider} from '../../helpers/index';
 
 @Component({
     selector: 'share-buttons',

@@ -1,7 +1,8 @@
-import { ElementRef } from '@angular/core';
-import { Response, ResponseOptions } from '@angular/http';
-import { TestBed, ComponentFixture } from '@angular/core/testing';
-import { MockBackend, MockConnection } from '@angular/http/testing';
+import {ElementRef} from '@angular/core';
+import {Response, ResponseOptions} from '@angular/http';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {MockBackend, MockConnection} from '@angular/http/testing';
+
 export module TestHelpers {
 
     export const windowUrl = 'http://localhost/index.html'; // fake  url

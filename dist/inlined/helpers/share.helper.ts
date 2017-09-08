@@ -1,6 +1,6 @@
-import { ShareArgs } from './share-buttons.class';
-import { ShareProvider } from './share-provider.enum';
-import { ShareLinks } from './share-links.functions';
+import {ShareArgs} from './share-buttons.class';
+import {ShareProvider} from './share-provider.enum';
+import {ShareLinks} from './share-links.functions';
 
 /** Here is a collection of helper functions that can be used statically */
 export module Helper {

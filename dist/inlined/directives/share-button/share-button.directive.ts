@@ -1,15 +1,7 @@
-import {
-    Directive,
-    OnChanges,
-    Input,
-    Output,
-    HostListener,
-    SimpleChanges,
-    EventEmitter
-} from '@angular/core';
+import {Directive, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges} from '@angular/core';
 
-import { ShareButtonsService } from '../../services/share-buttons.service';
-import { ShareArgs, ShareProvider, Helper } from '../../helpers/index';
+import {ShareButtonsService} from '../../services/share-buttons.service';
+import {Helper, ShareArgs, ShareProvider} from '../../helpers/index';
 
 @Directive({
     selector: '[shareButton]'

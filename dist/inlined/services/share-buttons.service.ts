@@ -1,11 +1,11 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Jsonp, Headers, RequestOptions } from '@angular/http';
-import { Observable } from 'rxjs/Observable';
+import {EventEmitter, Injectable} from '@angular/core';
+import {Headers, Http, Jsonp, RequestOptions} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/empty';
 
-import { WindowService } from './window.service';
-import { ShareArgs, ShareProvider, Helper } from '../helpers/index';
+import {WindowService} from './window.service';
+import {Helper, ShareArgs, ShareProvider} from '../helpers/index';
 
 declare const global: any; // To make AoT compiler (ngc) happy
 
