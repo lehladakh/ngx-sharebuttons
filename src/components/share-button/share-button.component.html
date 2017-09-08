@@ -8,7 +8,7 @@
         (sbCount)="counter($event)"
         (sbPopUpClosed)="shareClosed($event)"
         [class.sb-show-count]="showCount"
-        aria-label="{{button.provider}}">
+        [attr.aria-label]="button.provider">
 
   <div class="sb-template" [innerHtml]="button.template"></div>
   <span *ngIf="showCount && shareCount" class="sb-count">{{ shareCount | nFormatter: 1 }}</span>

@@ -23,7 +23,7 @@ var ShareButtonComponent = (function () {
 ShareButtonComponent.decorators = [
     { type: core_1.Component, args: [{
                 selector: 'share-button',
-                template: "\n      <button [shareButton]=\"button.provider\"\n              [sbUrl]=\"url\"\n              [sbImage]=\"image\"\n              [sbTitle]=\"title\"\n              [sbDescription]=\"description\"\n              [sbTags]=\"tags\"\n              [sbShowCount]=\"showCount\"\n              (sbCount)=\"counter($event)\"\n              (sbPopUpClosed)=\"shareClosed($event)\"\n              [class.sb-show-count]=\"showCount\"\n              aria-label=\"{{button.provider}}\">\n\n        <div class=\"sb-template\" [innerHtml]=\"button.template\"></div>\n        <span *ngIf=\"showCount && shareCount\" class=\"sb-count\">{{ shareCount | nFormatter: 1 }}</span>\n      </button>\n    ",
+                template: "\n      <button [shareButton]=\"button.provider\"\n              [sbUrl]=\"url\"\n              [sbImage]=\"image\"\n              [sbTitle]=\"title\"\n              [sbDescription]=\"description\"\n              [sbTags]=\"tags\"\n              [sbShowCount]=\"showCount\"\n              (sbCount)=\"counter($event)\"\n              (sbPopUpClosed)=\"shareClosed($event)\"\n              [class.sb-show-count]=\"showCount\"\n              [attr.aria-label]=\"button.provider\">\n\n        <div class=\"sb-template\" [innerHtml]=\"button.template\"></div>\n        <span *ngIf=\"showCount && shareCount\" class=\"sb-count\">{{ shareCount | nFormatter: 1 }}</span>\n      </button>\n    ",
                 changeDetection: core_1.ChangeDetectionStrategy.OnPush
             },] },
 ];
